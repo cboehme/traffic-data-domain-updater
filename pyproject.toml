@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eco-counter-domain-updater"
+version = "1.0.0"
+dependencies = [
+    "requests==2.32.3"
+]
+description = "A script for searching for eco counter domains and updating the list of known domains"
+authors = [
+    { name = "Christoph Böhme", email = "christoph@b3e.net" }
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+]
+
+[project.urls]
+Homepage = "https://github.com/cboehme/eco-counter-domain-updater"
+Repository = "https://github.com/cboehme/eco-counter-domain-updater.git"
+
+[project.scripts]
