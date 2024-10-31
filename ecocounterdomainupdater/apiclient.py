@@ -1,4 +1,5 @@
 import json
+import re
 
 import requests
 
@@ -34,7 +35,7 @@ def update_gist(domains):
     patch_body = {
         "files": {
             "domains.json": {
-                "content": json.dumps(domains, sort_keys=True, indent=2),
+                "content": re.sub(" {2}},\\w*\n {2}\\{", "}, {", json.dumps(domains, sort_keys=True, indent=2, ensure_ascii=False), flags=re.MULTILINE),
             }
         }
     }
