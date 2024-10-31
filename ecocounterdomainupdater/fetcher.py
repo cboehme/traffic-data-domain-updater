@@ -18,7 +18,9 @@ def find_domains(max_domain_id):
 
 def main():
     domains = find_domains(10_001)
-    apiclient.update_gist(domains)
+    old_domains = apiclient.get_gist()
+    if domains != old_domains:
+       apiclient.update_gist(domains)
 
 
 if __name__ == "__main__":

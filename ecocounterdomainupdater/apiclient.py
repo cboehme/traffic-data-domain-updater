@@ -25,8 +25,25 @@ def fetch_sites_in_domain(domain_id: int):
         return []
 
 
+def get_gist():
+    url = "https://api.github.com/gists/33d03f2de5add333c0217106cca35478"
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "Authorization": "Bearer ",
+        "X-GitHub-Api-Version": "2022-11-28"
+    }
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()
+        gist = response.json()
+        return json.loads(gist["files"]["domains.json"]["content"])
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return []
+
+
 def update_gist(domains):
-    url = "https://api.github.com/gists/5034712e9e86452d9197998b2837fc76"
+    url = "https://api.github.com/gists/33d03f2de5add333c0217106cca35478"
     headers = {
         "Accept": "application/vnd.github+json",
         "Authorization": "Bearer ",
@@ -42,6 +59,5 @@ def update_gist(domains):
     try:
         response = requests.patch(url, headers=headers, json=patch_body)
         response.raise_for_status()
-        print(response.status_code)
     except Exception as e:
         print(f"An error occurred: {e}")
