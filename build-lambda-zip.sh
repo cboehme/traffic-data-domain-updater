@@ -11,3 +11,4 @@ rm -f eco-counter-domain-updater.zip
 )
 
 zip -r eco-counter-domain-updater.zip ecocounterdomainupdater -x "*/__pycache__/*"
+zip -eco-counter-domain-updater.zip lambda_function.py
