@@ -5,3 +5,5 @@ venv/
 
 .idea/
 *.iml
+
+eco-counter-domain-updater.zip
