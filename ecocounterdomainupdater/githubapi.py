@@ -3,16 +3,26 @@ import re
 
 import requests
 
+_access_token = None
 
-def get_gist():
-    url = "https://api.github.com/gists/33d03f2de5add333c0217106cca35478"
-    headers = {
+
+def authorize(token: str):
+    global _access_token
+    _access_token = token
+
+
+def _get_headers():
+    return {
         "Accept": "application/vnd.github+json",
-        "Authorization": "Bearer TOKEN",
+        "Authorization": f"Bearer {_access_token}",
         "X-GitHub-Api-Version": "2022-11-28"
     }
+
+
+def get_gist(gist_id: str):
+    url = f"https://api.github.com/gists/{gist_id}"
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=_get_headers())
         response.raise_for_status()
         gist = response.json()
         return json.loads(gist["files"]["domains.json"]["content"])
@@ -21,13 +31,8 @@ def get_gist():
         return []
 
 
-def update_gist(domains):
-    url = "https://api.github.com/gists/33d03f2de5add333c0217106cca35478"
-    headers = {
-        "Accept": "application/vnd.github+json",
-        "Authorization": "Bearer TOKEN",
-        "X-GitHub-Api-Version": "2022-11-28"
-    }
+def update_gist(gist_id: str, domains):
+    url = f"https://api.github.com/gists/{gist_id}"
     patch_body = {
         "files": {
             "domains.json": {
@@ -36,7 +41,7 @@ def update_gist(domains):
         }
     }
     try:
-        response = requests.patch(url, headers=headers, json=patch_body)
+        response = requests.patch(url, headers=_get_headers(), json=patch_body)
         response.raise_for_status()
     except Exception as e:
         print(f"An error occurred: {e}")

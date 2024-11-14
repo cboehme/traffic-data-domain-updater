@@ -14,12 +14,13 @@ def find_domains(max_domain_id):
     return domains
 
 
-def update_domain_list():
-    domains = find_domains(10_001)
-    old_domains = githubapi.get_gist()
+def update_domain_list(gist_id, max_domain_id):
+    domains = find_domains(max_domain_id)
+    old_domains = githubapi.get_gist(gist_id)
     if domains != old_domains:
-       githubapi.update_gist(domains)
+       githubapi.update_gist(gist_id, domains)
 
 
 if __name__ == "__main__":
-    update_domain_list()
+    githubapi.authorize("TOKEN")
+    update_domain_list("33d03f2de5add333c0217106cca35478", 10_001)
