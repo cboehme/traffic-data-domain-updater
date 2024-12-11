@@ -22,3 +22,4 @@ Homepage = "https://github.com/cboehme/eco-counter-domain-updater"
 Repository = "https://github.com/cboehme/eco-counter-domain-updater.git"
 
 [project.scripts]
+ec-domain-updater = "ecocounterdomainupdater.updater:main"

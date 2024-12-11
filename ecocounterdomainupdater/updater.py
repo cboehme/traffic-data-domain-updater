@@ -21,6 +21,10 @@ def update_domain_list(gist_id, max_domain_id):
        githubapi.update_gist(gist_id, domains)
 
 
-if __name__ == "__main__":
+def main():
     githubapi.authorize("TOKEN")
     update_domain_list("33d03f2de5add333c0217106cca35478", 10_000)
+
+
+if __name__ == "__main__":
+    main()
