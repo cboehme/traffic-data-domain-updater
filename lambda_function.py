@@ -1,5 +1,5 @@
 from ecocounterdomainupdater import githubapi
-from ecocounterdomainupdater.fetcher import update_domain_list
+from ecocounterdomainupdater.updater import update_domain_list
 
 
 def lambda_handler(event, context):
