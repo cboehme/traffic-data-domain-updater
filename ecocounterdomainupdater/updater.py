@@ -3,7 +3,7 @@ from ecocounterdomainupdater import ecocounterapi, githubapi
 
 def find_domains(max_domain_id):
     domains = []
-    for domain_id in range(1, max_domain_id):
+    for domain_id in range(1, max_domain_id + 1):
         print("Trying domain id %d" % domain_id)
         sites = ecocounterapi.fetch_sites_in_domain(domain_id)
         if len(sites) > 0:
@@ -23,4 +23,4 @@ def update_domain_list(gist_id, max_domain_id):
 
 if __name__ == "__main__":
     githubapi.authorize("TOKEN")
-    update_domain_list("33d03f2de5add333c0217106cca35478", 10_001)
+    update_domain_list("33d03f2de5add333c0217106cca35478", 10_000)
