@@ -1,4 +1,4 @@
-from ecocounterdomainupdater import ecocounterapi, githubapi
+from trafficdatadomainupdater import ecocounterapi, githubapi
 
 
 def find_domains(max_domain_id):
