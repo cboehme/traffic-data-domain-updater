@@ -7,4 +7,4 @@ dist/
 .idea/
 *.iml
 
-traffic-data-domain-updater.zip
+docker-build.args

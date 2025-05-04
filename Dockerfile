@@ -15,13 +15,14 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 FROM python:3.13-slim
-LABEL authors="christoph"
+
+ARG VERSION
 
 WORKDIR /usr/src/app
 
-COPY dist/traffic_data_domain_updater-1.0.0.tar.gz dist/
+COPY dist/traffic_data_domain_updater-${VERSION}.tar.gz dist/
 
-RUN pip install --root-user-action=ignore --no-cache-dir dist/traffic_data_domain_updater-1.0.0.tar.gz
+RUN pip install --root-user-action=ignore --no-cache-dir dist/traffic_data_domain_updater-${VERSION}.tar.gz
 
 COPY entrypoint.py ./
 
