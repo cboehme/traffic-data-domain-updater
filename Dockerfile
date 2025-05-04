@@ -23,6 +23,6 @@ COPY dist/traffic_data_domain_updater-1.0.0.tar.gz dist/
 
 RUN pip install --root-user-action=ignore --no-cache-dir dist/traffic_data_domain_updater-1.0.0.tar.gz
 
-COPY fargate.py ./
+COPY entrypoint.py ./
 
-CMD ["python", "./fargate.py"]
+CMD ["python", "./entrypoint.py"]
