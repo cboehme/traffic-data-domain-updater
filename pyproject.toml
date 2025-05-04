@@ -38,6 +38,3 @@ license-files = ["LICENSE"]
 [project.urls]
 Homepage = "https://github.com/cboehme/traffic-data-domain-updater"
 Repository = "https://github.com/cboehme/traffic-data-domain-updater.git"
-
-[project.scripts]
-traffic-data-domain-updater = "trafficdatadomainupdater.updater:main"
