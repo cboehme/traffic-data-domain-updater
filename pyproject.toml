@@ -41,6 +41,5 @@ Repository = "https://github.com/cboehme/traffic-data-domain-updater.git"
 
 [tool.setuptools_scm]
 tag_regex = "^release/(?P<version>\\d+\\.\\d+.\\d+)$"
-version_file = "docker-build.args"
-version_file_template = "VERSION={version}"
+version_file = "version.txt"
 fallback_version = "0.0.0-NO-GIT-BASED-VERSIONING"
